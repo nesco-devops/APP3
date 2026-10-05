@@ -8,13 +8,14 @@ RUN npm ci --omit=dev
 
 FROM node:22-alpine AS runtime
 
+RUN apk upgrade --no-cache
+
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Le serveur sera lancé directement avec Node.js.
-# npm et Yarn ne sont pas nécessaires dans l'image finale.
+# Retirer les outils inutiles à l'exécution du serveur.
 RUN rm -rf /usr/local/lib/node_modules/npm \
     /opt/yarn-* \
     /usr/local/bin/npm \
