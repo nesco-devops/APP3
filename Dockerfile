@@ -15,13 +15,15 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Retirer les outils inutiles à l'exécution du serveur.
 RUN rm -rf /usr/local/lib/node_modules/npm \
     /opt/yarn-* \
     /usr/local/bin/npm \
     /usr/local/bin/npx \
     /usr/local/bin/yarn \
     /usr/local/bin/yarnpkg
+
+# Retirer le gestionnaire de paquets et ses dépendances inutiles.
+RUN apk del --no-cache apk-tools libapk zlib
 
 COPY --from=dependencies --chown=node:node /app/node_modules ./node_modules
 COPY --chown=node:node package.json server.js ./
