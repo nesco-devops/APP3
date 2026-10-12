@@ -10,12 +10,12 @@ permissions:
 
 jobs:
   docker:
-    uses: nesco-devops/Action3/.github/workflows/docker-build-push.yml@main
+    uses: nesco-devops/Action3/.github/workflows/docker-build-push.yml@feat/semgrep-security
     with:
-      image_name: app3
+      image_name: app3-semgrep-test
       build_context: .
       dockerfile: ./Dockerfile
-      gitops_manifest: app3/deployment.yaml
+      gitops_manifest: ""
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
