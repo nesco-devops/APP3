@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   docker:
-    uses: nesco-devops/Action3/.github/workflows/docker-build-push.yml@feat/scan-before-push
+    uses: nesco-devops/Action3/.github/workflows/docker-build-push.yml@fix/oci-image-selection
     with:
       image_name: app3-scan-test
       build_context: .
