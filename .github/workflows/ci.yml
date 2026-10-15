@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   docker:
-    uses: nesco-devops/Action3/.github/workflows/docker-build-push.yml@main
+    uses: nesco-devops/Action3/.github/workflows/docker-build-push.yml@feat/gitops-pull-request
     with:
       image_name: app3
       build_context: .
