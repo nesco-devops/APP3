@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.type('text/plain').send('Bonjour depuis APP3 !');
+  res.type('text/plain').send('Bonjour depuis APP3 — pipeline sécurisé !');
 });
 
 app.get('/health', (req, res) => {
